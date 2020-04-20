@@ -1,0 +1,24 @@
+PART A
+public boolean simulate(){
+  int sum=0;
+  for(int i=1; i<=this.maxHops; i++){
+    sum+=hopDistance();
+    if(sum<0) return false;
+    else if(sum>=this.goalDistance) return true;
+  }
+  return false;
+}
+
+PART B
+public double runSimulations(int num){
+  double success=0.0;
+  for(int i=1; i<=num; i++){
+    if(this.simulate()){
+      success++;
+    }
+  }
+  return success/num;
+}
+
+difficulties: calling a method - does method need to be called from an object? when do a method need to be called from something?
+understanding the question's nuances - slow down!
