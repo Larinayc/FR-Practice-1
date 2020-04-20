@@ -1,0 +1,30 @@
+PART A
+public int nextTankToFill(int threshold){
+  int lowest=tanks.get(0).getFuelLevel();
+  int lowestindex=filler.getCurrentIndex();
+  for(int i=0; i<tanks.size();i++){
+    int level=tanks.get(i).getFuelLevel();
+    if(level<threshold && level<lowest){
+      lowest=level;
+      lowestindex=i;
+    }
+  }
+  return lowestindex;
+}
+
+PART B
+public void moveToLocation(int locIndex){
+  int start=filler.getCurrentIndex();
+  if(start<locIndex){
+    if(filler.isFacingRight()){
+      filler.changeDirection();
+     }
+    filler.moveForward(locIndex-start);
+  }
+  else{
+    if(!filler.isFacingRight()){
+      filler.changeDirection();
+     }
+    filler.moveForward(start-locIndex);
+  }
+}
